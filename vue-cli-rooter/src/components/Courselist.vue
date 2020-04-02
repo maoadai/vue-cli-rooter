@@ -8,12 +8,12 @@
         v-for="c in courses"
         :key="c.name"
         :class="{active:(selectedCourse===c.name)}"
-        @click="selectedCourse = c.name"
+        @click="onclick(c)"
       >
-        <!-- {{c.name}}-{{c.price | currency('$')}} -->
-        <nav>
-          <router-link :to="`/course/${c.name}`">{{c.name}}-{{c.price | currency('$')}}</router-link>
-        </nav>
+        {{c.name}}-{{c.price | currency('$')}}
+        <!-- <nav>
+          <router-link :to="`/about/${c.name}`">{{c.name}}-{{c.price | currency('$')}}</router-link>
+        </nav> -->
       </div>
     </div>
   </div>
@@ -42,7 +42,15 @@ export default {
       //使用过程中，不传参数的话，就默认传递管道符号前面的参数
       return symbol + value;
     }
-  }
+  },methods: {
+    onclick(c) {
+      this.selectedCourse = c.name;
+      this.$router.push({
+        name:'detail',
+        params:{name:c.name}
+      })
+    }
+  },
 };
 </script>
 

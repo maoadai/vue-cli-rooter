@@ -12,6 +12,7 @@
       <Courseadd v-model="course" @add-course="addCourse"></Courseadd>
       <Courselist :courses="courses"></Courselist>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 <script>
