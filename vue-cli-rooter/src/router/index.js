@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import store from '../store'
+
 
 Vue.use(VueRouter)
 
@@ -50,7 +52,7 @@ const router = new VueRouter({
 router.beforeEach((to,from,next)=>{
     //判断是否需要守卫
     if(to.meta.auth){
-      if(window.islogin){
+      if(store.state.user.islogin){
         next();
       }else{
         next('/login?redirect='+to.fullPath)
