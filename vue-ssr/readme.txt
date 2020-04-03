@@ -1,1 +1,1 @@
-lesson 7 ·şÎñ¶ËäÖÈ¾ssr
+lesson 7 æœåŠ¡ç«¯æ¸²æŸ“ssr
