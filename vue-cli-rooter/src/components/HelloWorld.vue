@@ -9,7 +9,7 @@
       <!-- 插槽 -->
       <slot></slot>
       <div>
-        <slot name="component"></slot>
+        <slot name="component" baz="slot info from child"></slot>
       </div>
   </div>
 </template>

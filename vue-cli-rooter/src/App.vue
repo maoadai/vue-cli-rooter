@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <!-- <div id="app">
     <img src="./assets/logo.png">
     <div>
       <p>
@@ -13,18 +13,25 @@
     <HelloWorld msg="Welcome to yout vue.js App" ref="hw2">
       <template>
         abc
-      </template>
-      <template v-slot:component>
-        content..............
+      </template> -->
+      <!-- <template v-slot:component="slotProps">
+        content..............{{slotProps.baz}}}
+      </template> -->
+      <!-- <template v-slot:component="{baz}">
+        content..............{{baz}}
       </template>
     </HelloWorld>
     <helloword2/>
+  </div> -->
+  <div id="app">
+      <index></index>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import helloword2 from './components/helloword2.vue'
+//import HelloWorld from './components/HelloWorld.vue'
+//import helloword2 from './components/helloword2.vue'
+import index from './form/index.vue'
 
 export default {
   name: 'app',
@@ -36,19 +43,11 @@ export default {
     }
   },
   components: {
-    HelloWorld,
-    helloword2
+    //HelloWorld,
+    //helloword2,
+    index
   },
-  mounted(){
-    this.$refs.hw2.xx="balbalababaa"
-  },
-  methods: {
-    onClick() {
-      console.log("click me");
-
-      
-    }
-  },
+  
 }
 </script>
 
