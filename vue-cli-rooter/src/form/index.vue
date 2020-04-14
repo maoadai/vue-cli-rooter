@@ -21,6 +21,7 @@ import KFormItem from "./KFormItem.vue";
 import KForm from "./KForm.vue";
 import Notice from '@/components/Notice.vue';
 
+
 export default {
   components: {
     Kinput,
@@ -48,8 +49,9 @@ export default {
             }else{
                 // alert("检验失败")
                 this.$create(Notice,{
-                    title:'校验失败',
-                    message:"检验信息，校验错误"
+                    title:"校验失败",
+                    message:"检验信息，校验错误",
+                    duration:2000
                 }).show()
             }
         })

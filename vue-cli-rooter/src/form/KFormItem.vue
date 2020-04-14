@@ -11,9 +11,12 @@
 
 <script>
 
-    import Schema from 'async-validator'
+    import Schema from 'async-validator';
+    import emitter from '@/mixins/emitter.js';
 
     export default {
+        componentName:'KFormItem',
+        mixins:[emitter],
         inject:['form'],
         props:{
             label:{
@@ -28,6 +31,12 @@
             }
         },
         mounted(){
+
+            //派发事件通知父组件
+            if(this.prop){
+                this.dispatch('KForm','testAddField',[this]);
+            }
+
             this.$on('validate',()=>{
                 this.validate();
             });
@@ -43,7 +52,7 @@
 
                 //3.执行校验,参数1是校验目标
                 return new Promise((resolve,reject)=>{
-                    validator.validate({[this.prop]:value},(errors)=>{
+                    validator.validate({[this.prop]:value},errors=>{
                     if(errors){
                         //校验失败
                         this.error = errors[0].message
@@ -54,6 +63,9 @@
                         resolve();
                     }
                 })
+                }).catch((e)=>{
+                    console.log(e);
+                    
                 })
                 
             }

@@ -6,8 +6,13 @@
 </template>
 
 <script>
+    
+    import emitter from '@/mixins/emitter.js';
+    
     export default {
+        componentName:'Kinput',
         inheritAttrs:false,
+        mixins:[emitter],
         props:{
             value:{
                 type:String,
@@ -19,7 +24,8 @@
                 this.$emit('input',e.target.value)
 
                 //实施校验，通知父组件
-                this.$parent.$emit('validate')
+                // this.$parent.$emit('validate')
+                this.dispatch('KFormItem','validate')
             }
         },
 
